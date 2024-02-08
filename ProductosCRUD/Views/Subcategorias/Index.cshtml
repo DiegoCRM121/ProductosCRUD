@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ProductosCRUD.Models.Subcategorias>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Subcategoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoriakey)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subcategoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoriakey)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Subcategoriakey">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Subcategoriakey">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Subcategoriakey">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
