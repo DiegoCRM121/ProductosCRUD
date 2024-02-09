@@ -4,39 +4,31 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Crear</h1>
 
-<h4>Productos</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            @* <div class="form-group">
-                <label asp-for="Productokey" class="control-label"></label>
-                <input asp-for="Productokey" class="form-control" />
-                <span asp-validation-for="Productokey" class="text-danger"></span>
-            </div> *@
             <div class="form-group">
+                <input type="hidden" asp-for="Productokey" value="@ViewData["NuevoProductoKey"]" />
+            </div>
+            <div class="form-group mb-4">
                 <label asp-for="Nombre" class="control-label"></label>
                 <input asp-for="Nombre" class="form-control" />
                 <span asp-validation-for="Nombre" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-4">
                 <label asp-for="Descripción" class="control-label"></label>
                 <input asp-for="Descripción" class="form-control" />
                 <span asp-validation-for="Descripción" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-4">
                 <label asp-for="Subcategoriakey" class="control-label"></label>
                 <select asp-for="Subcategoriakey" class="form-control" asp-items="ViewBag.Subcategoriakey"></select>
                 <span asp-validation-for="Subcategoriakey" class="text-danger"></span>
             </div>
-            @* <div class="form-group">
-                <label asp-for="Subcategoriakey" class="control-label"></label>
-                <input asp-for="Subcategoriakey" class="form-control" />
-                <span asp-validation-for="Subcategoriakey" class="text-danger"></span>
-            </div> *@
             @* <div class="form-group">
                 <label asp-for="Manufactura" class="control-label"></label>
                 <input asp-for="Manufactura" class="form-control" />
@@ -87,15 +79,15 @@
                 <input asp-for="Precio" class="form-control" />
                 <span asp-validation-for="Precio" class="text-danger"></span>
             </div> *@
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <div class="form-group mb-4">
+                <input type="submit" value="Crear" class="btn btn-success" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Volver a la Lista</a>
 </div>
 
 @section Scripts {

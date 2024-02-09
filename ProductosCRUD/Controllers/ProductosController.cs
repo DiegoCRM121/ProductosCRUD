@@ -71,20 +71,14 @@ namespace ProductosCRUD.Controllers
             //return View();
 
             var ultimoProductoKey = _context.Productos.OrderByDescending(p => p.Productokey).FirstOrDefault()?.Productokey ?? 0;
-
-            // Incrementar el último Productokey en 1 para el nuevo producto
             var nuevoProductoKey = ultimoProductoKey + 1;
-
-            // Obtener la lista de subcategorías
             var subcategorias = _context.Subcategorias.ToList();
 
-            // Crear una SelectList usando los nombres de las subcategorías como valor y la clave de la subcategoría como texto
             ViewData["Subcategoriakey"] = new SelectList(subcategorias, "Subcategoriakey", "Subcategoria");
 
-            // Asignar el nuevo Productokey al modelo
-            var nuevoProducto = new Productos { Productokey = nuevoProductoKey };
+            ViewData["NuevoProductoKey"] = nuevoProductoKey;
 
-            return View(nuevoProducto);
+            return View();
         }
 
         // POST: Productos/Create
